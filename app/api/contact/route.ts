@@ -40,7 +40,7 @@ export async function POST(request: Request) {
 
     const { data: adminData, error: adminError } =
       await resend.emails.send({
-        from: "Archana Portfolio <info@my-portfolio-three-flame-12.vercel.app>",
+        from: "Archana Portfolio <onboarding@resend.dev>",
         to: ["saha.archana765@gmail.com"],
         replyTo: email,
         subject: subject || `New Portfolio Message from ${name}`,
@@ -102,7 +102,7 @@ export async function POST(request: Request) {
 
     const { data: visitorData, error: visitorError } =
       await resend.emails.send({
-        from: "Archana Portfolio <info@my-portfolio-three-flame-12.vercel.app>",
+        from: "Archana Portfolio <onboarding@resend.dev>",
         to: [email],
         subject: "Thank you for contacting me",
 
