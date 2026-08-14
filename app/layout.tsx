@@ -17,14 +17,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Archana Saha | Senior Frontend & WordPress Developer",
   description: "Senior Frontend and WordPress Developer specializing in WordPress, React, Next.js, responsive websites and modern web applications",
-  metadataBase: new URL("https://archanasaha.com"),
+  metadataBase: new URL("https://my-portfolio-three-flame-12.vercel.app/"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Archana Saha | Senior Frontend & WordPress Developer",
     description: "Senior Frontend and WordPress Developer specializing in WordPress, React, Next.js, responsive websites and modern web applications.",
-    url: "https://archanasaha.com",
+    url: "https://my-portfolio-three-flame-12.vercel.app/",
     siteName: "Archana Saha Portfolio",
     locale: "en_US",
     type: "website",
