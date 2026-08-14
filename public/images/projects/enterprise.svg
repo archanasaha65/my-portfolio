@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="entGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F766E" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#171717" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="500" fill="#FFFFFF" />
+  <rect width="800" height="500" fill="url(#entGrad)" />
+  
+  <!-- Abstract Node Network / Enterprise Concept -->
+  <g stroke="#E5E5E5" stroke-width="1">
+    <line x1="250" y1="200" x2="400" y2="120" />
+    <line x1="400" y1="120" x2="550" y2="200" />
+    <line x1="550" y1="200" x2="500" y2="330" />
+    <line x1="500" y1="330" x2="300" y2="330" />
+    <line x1="300" y1="330" x2="250" y2="200" />
+    
+    <line x1="250" y1="200" x2="400" y2="230" />
+    <line x1="400" y1="120" x2="400" y2="230" />
+    <line x1="550" y1="200" x2="400" y2="230" />
+    <line x1="500" y1="330" x2="400" y2="230" />
+    <line x1="300" y1="330" x2="400" y2="230" />
+  </g>
+  
+  <!-- Nodes -->
+  <circle cx="250" cy="200" r="16" fill="#171717" />
+  <text x="250" y="204" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="10" fill="#FFFFFF" text-anchor="middle">UI</text>
+  
+  <circle cx="400" cy="120" r="22" fill="#0F766E" />
+  <text x="400" y="125" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="13" fill="#FFFFFF" text-anchor="middle">API</text>
+  
+  <circle cx="550" cy="200" r="18" fill="#171717" />
+  <text x="550" y="204" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="10" fill="#FFFFFF" text-anchor="middle">DATA</text>
+  
+  <circle cx="500" cy="330" r="15" fill="#666666" />
+  <text x="500" y="334" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="9" fill="#FFFFFF" text-anchor="middle">SYS</text>
+  
+  <circle cx="300" cy="330" r="15" fill="#666666" />
+  <text x="300" y="334" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="9" fill="#FFFFFF" text-anchor="middle">SEC</text>
+  
+  <circle cx="400" cy="230" r="28" fill="#0F766E" fill-opacity="0.1" stroke="#0F766E" stroke-width="2" />
+  <circle cx="400" cy="230" r="8" fill="#0F766E" />
+
+  <!-- Info text overlay -->
+  <text x="400" y="440" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14" fill="#171717" text-anchor="middle">Enterprise Web Application</text>
+  <text x="400" y="460" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="11" fill="#666666" text-anchor="middle">Angular · Enterprise Business Platform · Integration</text>
+</svg>

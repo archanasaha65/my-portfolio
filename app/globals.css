@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #F8F7F4;
+  --color-primary-text: #171717;
+  --color-secondary-text: #666666;
+  --color-primary-accent: #0F766E;
+  --color-accent-hover: #115E59;
+  --color-card-bg: #FFFFFF;
+  --color-border-custom: #E5E5E5;
+  --color-dark-cta-bg: #171717;
+  --color-dark-cta-text: #FFFFFF;
+  
+  --font-heading: var(--font-manrope), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}
+
+:root {
+  --background: #F8F7F4;
+  --foreground: #171717;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Utilities or Styles if needed */
+.text-hero {
+  font-size: 42px;
+  line-height: 48px;
+}
+@media (min-width: 768px) {
+  .text-hero {
+    font-size: 52px;
+    line-height: 58px;
+  }
+}
+@media (min-width: 1024px) {
+  .text-hero {
+    font-size: 64px;
+    line-height: 72px;
+  }
+}
+
+.text-section-heading {
+  font-size: 32px;
+  line-height: 40px;
+}
+@media (min-width: 768px) {
+  .text-section-heading {
+    font-size: 42px;
+    line-height: 50px;
+  }
+}
+
+.text-project-heading {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.text-body-custom {
+  font-size: 16px;
+  line-height: 26px;
+}
+@media (min-width: 1024px) {
+  .text-body-custom {
+    font-size: 17px;
+    line-height: 28px;
+  }
+}
