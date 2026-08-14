@@ -16,7 +16,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Archana Saha | Senior Frontend & WordPress Developer",
-  description: "Senior Frontend and WordPress Developer specializing in WordPress, React, Next.js, responsive websites and modern web applications.",
+  description: "Senior Frontend and WordPress Developer specializing in WordPress, React, Next.js, responsive websites and modern web applications",
   metadataBase: new URL("https://archanasaha.com"),
   alternates: {
     canonical: "/",
