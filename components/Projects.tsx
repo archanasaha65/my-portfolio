@@ -1,47 +1,178 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import {
   ExternalLink,
   LockKeyhole,
   UserRound,
   BriefcaseBusiness,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 import { projects } from "@/data/portfolio";
 
 export default function Projects() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const handleScroll = (direction: "left" | "right") => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const card = container.querySelector("article");
+    if (!card) return;
+
+    const cardWidth = card.offsetWidth;
+    const gap = parseFloat(window.getComputedStyle(container).gap) || 24;
+    const scrollAmount = cardWidth + gap;
+
+    if (direction === "left") {
+      if (container.scrollLeft <= 10) {
+        container.scrollTo({
+          left: container.scrollWidth - container.clientWidth,
+          behavior: "smooth",
+        });
+      } else {
+        container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      }
+    } else {
+      const isAtEnd =
+        container.scrollLeft + container.clientWidth >=
+        container.scrollWidth - 20;
+      if (isAtEnd) {
+        container.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      handleScroll("right");
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
   return (
     <section
       id="projects"
-      className="py-16 md:py-24 bg-[#FFFFFF] border-t border-[#E5E5E5]"
+      className="py-16 md:py-24 bg-[#FFFFFF] border-t border-[#E5E5E5] overflow-hidden"
     >
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
 
         {/* ================= SECTION HEADER ================= */}
 
-        <div className="max-w-3xl mb-12 md:mb-16 space-y-4">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-7 md:mb-8 gap-6">
 
-          <span className="font-heading font-bold text-xs tracking-[0.15em] text-[#0F766E] uppercase">
-            SELECTED WORK
-          </span>
+          <div className="max-w-3xl space-y-4">
 
-          <h2 className="font-heading font-bold text-section-heading text-[#171717] tracking-tight leading-tight">
-            Projects I&apos;ve worked on.
-          </h2>
+            <span className="font-heading font-bold text-xs tracking-[0.15em] text-[#0F766E] uppercase">
+              SELECTED WORK
+            </span>
 
-          <p className="text-base md:text-lg text-[#666666] leading-relaxed max-w-2xl">
-            A selection of professional websites, freelance work and personal
-            projects I&apos;ve worked on across different technologies and
-            business requirements.
-          </p>
+            <h2 className="font-heading font-bold text-section-heading text-[#171717] tracking-tight leading-tight">
+              Projects I&apos;ve worked on.
+            </h2>
+
+            <p className="text-base md:text-lg text-[#666666] leading-relaxed max-w-2xl">
+              A selection of professional websites, freelance work and personal
+              projects I&apos;ve worked on across different technologies and
+              business requirements.
+            </p>
+
+          </div>
+
+          {/* Navigation Arrows */}
+          <div className="flex items-center gap-2.5 flex-shrink-0">
+            <button
+              onClick={() => handleScroll("left")}
+              className="
+                w-9
+                h-9
+                rounded-full
+                border border-[#E5E5E5]
+                bg-white
+                text-[#171717]
+                flex
+                items-center
+                justify-center
+                hover:bg-[#F8F7F4]
+                hover:border-[#0F766E]
+                hover:text-[#0F766E]
+                transition-all
+                duration-300
+                shadow-sm
+                focus:outline-none
+                focus:ring-2
+                focus:ring-[#0F766E]/50
+                cursor-pointer
+              "
+              aria-label="Previous project"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button
+              onClick={() => handleScroll("right")}
+              className="
+                w-9
+                h-9
+                rounded-full
+                border border-[#E5E5E5]
+                bg-white
+                text-[#171717]
+                flex
+                items-center
+                justify-center
+                hover:bg-[#F8F7F4]
+                hover:border-[#0F766E]
+                hover:text-[#0F766E]
+                transition-all
+                duration-300
+                shadow-sm
+                focus:outline-none
+                focus:ring-2
+                focus:ring-[#0F766E]/50
+                cursor-pointer
+              "
+              aria-label="Next project"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
 
         </div>
 
 
-        {/* ================= PROJECT GRID ================= */}
+        {/* ================= PROJECT SLIDER ================= */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          ref={scrollContainerRef}
+          className="
+            flex
+            overflow-x-auto
+            snap-x
+            snap-mandatory
+            scroll-smooth
+            scrollbar-hide
+            gap-6
+            md:gap-8
+            pb-8
+            pt-2
+          "
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+        >
 
           {projects.map((project, index) => (
 
@@ -59,6 +190,11 @@ export default function Projects() {
                 hover:-translate-y-1
                 transition-all
                 duration-300
+                w-full
+                md:w-[calc((100%-32px)/2)]
+                lg:w-[calc((100%-64px)/3)]
+                flex-shrink-0
+                snap-start
               "
             >
 
