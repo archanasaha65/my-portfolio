@@ -48,7 +48,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#F8F7F4] border-t border-[#E5E5E5]">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-12 md:py-14">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-12 pt-12 md:pt-14 pb-5 md:pb-6">
 
         {/* Main Footer */}
         <div className="flex flex-col md:flex-row md:justify-between gap-10">
